@@ -1,0 +1,14 @@
+name: Reviewers CI
+on:
+  pull_request_review:
+
+jobs:
+  reviewer-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Verify reviewers
+        uses: vikramatscore/action-reviewer-check@testv1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reviewers_json_file_path: './.github/reviewers.json'
