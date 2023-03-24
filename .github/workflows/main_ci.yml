@@ -1,0 +1,17 @@
+name: Main CI
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "setup complete"
+
+  build:
+    needs: [setup]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "build done"
